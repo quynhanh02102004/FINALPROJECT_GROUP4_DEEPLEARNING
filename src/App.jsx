@@ -70,14 +70,14 @@ export default function App() {
 
         <section className="section">
           <div className="section-head">
-            <h2>POLYVORE PRODUCTS</h2>
+            <h2>BEST SELLERS</h2>
             <a className="link" href="#all">
               View all →
             </a>
           </div>
 
           {loading ? (
-            <p style={{ textAlign: "center" }}>⏳ Đang tải dữ liệu...</p>
+            <p style={{ textAlign: "center" }}>⏳LOADING DATA...</p>
           ) : (
             <>
               <ProductGrid items={visibleProducts} />
@@ -85,7 +85,7 @@ export default function App() {
             {visibleCount < filtered.length && (
               <div className="load-more-container">
                 <button className="load-more-btn" onClick={handleLoadMore}>
-                  <span className="arrow">⬇️</span>
+                  <span className="arrow">▼</span>
                 </button>
               </div>
             )}

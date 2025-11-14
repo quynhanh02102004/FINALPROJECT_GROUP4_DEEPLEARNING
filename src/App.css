@@ -2,7 +2,11 @@
 
 :root{
   --bg:#0d0f1a;
-  --card:#151a2b;
+  /* --card:#151a2b; */
+
+  --card:#ffffff;       /* trắng */
+--line:#e2e2e2;       /* đường viền xám nhẹ */
+--muted:#444;  
   --muted:#9aa3b2;
   --line:#20273b;
   --brand1:#5ac8fa;
@@ -11,15 +15,38 @@
 
 *{ box-sizing:border-box }
 html,body,#root{ height:100% }
-body{ margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto; color:#eaf0ff; background:#0f1430 }
+/* body{ margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto; color:#eaf0ff; background:#0f1430 } */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto;
+  color: #000;             /* chữ đen */
+  background: #ffffff;     /* nền trắng */
+}
 
 .site{ display:flex; min-height:100%; flex-direction:column }
 main{ flex:1 }
 
 a{ color:inherit; text-decoration:none }
-.section{ padding:32px 24px; max-width:1200px; margin:0 auto }
-.section-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px }
-.section h2{ margin:0; letter-spacing:.3px }
+/* .section{ background:#ffffff; padding:32px 24px; max-width:1200px; margin:0 auto } */
+
+.section {
+  background: #ffffff !important;
+  padding: 40px 0;
+  max-width: 1400px;     /* ⭐ Giới hạn chiều rộng tổng */
+  margin: 0 auto;        /* ⭐ Canh giữa */
+}
+
+.section-head h2 {
+  font-size: 42px;         /* 🔥 to hơn */
+  font-weight: 800;        /* 🔥 đậm sang trọng */
+  letter-spacing: 1px;     /* 🔥 giãn chữ nhẹ */
+  font-family: "Playfair Display", serif;  /* 🔥 font đẹp, high-end */
+  margin-bottom: 20px;
+  color: #111 !important;
+}
+.section .section-head a {
+  color: #000 !important;
+}
 .link{ color:var(--brand1) }
 
 /* ===== Header ===== */
@@ -74,7 +101,17 @@ a{ color:inherit; text-decoration:none }
 .btn-light{ background:#ffffff; color:#0b1324; }
 
 /* ===== Product grid (container only; cards in ProductGrid.css) ===== */
-.section .grid{ display:grid; gap:18px; grid-template-columns:repeat(4,1fr) }
+
+.section .grid {
+  display: grid;
+  gap: 40px;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));   /* ⭐ CHỈ 4 item/hàng */
+  margin: 0 auto;
+  padding: 0 20px;                                    /* thụt nhẹ 2 bên */
+}
+
+
 @media (max-width:1024px){ .section .grid{ grid-template-columns:repeat(3,1fr) } }
 @media (max-width:720px){ .section .grid{ grid-template-columns:repeat(2,1fr) } }
 
@@ -138,3 +175,9 @@ a{ color:inherit; text-decoration:none }
   transform: translateY(3px);
 }
 
+.section .grid img {
+  width: 100%;
+  height: 380px;        /* bạn có thể chỉnh 400–420 */
+  object-fit: cover;
+  border-radius: 4px;
+}

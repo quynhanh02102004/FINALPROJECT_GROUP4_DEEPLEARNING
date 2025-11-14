@@ -4,29 +4,27 @@ import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      {/* Banner nền */}
-      <img
-        className="hero-img"
-        src="//yame.vn/cdn/shop/files/banner_homepage_241025.png?v=1761364686&width=2000"
-        alt="Banner"
-      />
+    <div className="hero-full">
+      <section className="hero-banner">
 
-      {/* Nội dung đè lên banner */}
-      <div className="hero-content">
-      <h1 className="hero-title">
-        WEAR YOUR <span className="gold">CHARACTER</span>
-        <br />
-        LIVE WITH <span className="gold">CONFIDENCE</span>
-      </h1>    
-       
-       
-      <div className="hero-actions">
-          <Link className="btn btn-outline" to="/search-image">
-            Feature 1: Find similar photos
-          </Link>
+        {/* Ảnh nền */}
+        <div className="hero-bg"></div>
+
+        {/* Content */}
+        <div className="hero-content">
+          {/* <h1 className="hero-title">
+            WEAR YOUR <span className="gold">CHARACTER</span> <br />
+            LIVE WITH <span className="gold">CONFIDENCE</span>
+          </h1> */}
+
+          <div className="hero-actions">
+            <Link className="btn btn-outline" to="/search-image">
+              📸Find similar items✨ 
+            </Link>
+          </div>
         </div>
-      </div>
-    </section>
+
+      </section>
+    </div>
   );
 }

@@ -6,7 +6,7 @@
   justify-items: center;
 }
 
-.product-card {
+/* .product-card {
   background: #101728;
   border-radius: 16px;
   overflow: hidden;
@@ -16,8 +16,14 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
   position: relative;
-}
+} */
 
+.product-card {
+  background:#ffffff;
+  border:1px solid #e6e6e6;
+  border-radius:0px;
+  color:#111;
+}
 .product-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
@@ -39,7 +45,7 @@
   padding: 14px 16px;
 }
 
-.product-title {
+/* .product-title {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
@@ -60,4 +66,16 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: #00bcd4;
+} */
+
+.product-card .title {
+  color:#111;
+}
+
+.product-card .category {
+  color:#666;
+}
+
+.product-card .price {
+  color:#0070f3; /* xanh dương đẹp */
 }

@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="socials">
             <a href="#!">📘</a><a href="#!">📸</a><a href="#!">🎬</a>
           </div>
-          <p>© {new Date().getFullYear()} GroupGAVTH – for learning demo</p>
+          <p>© {new Date().getFullYear()} Group04 – for learning demo</p>
         </div>
       </div>
     </footer>

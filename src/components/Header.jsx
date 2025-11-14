@@ -16,7 +16,7 @@ export default function Header({ query, setQuery }) {
   return (
     <header className="header">
       <div className="header-inner">
-        <a className="logo" href="/"><span>🛡</span> GroupGAVTH<span></span></a>
+        <a className="logo" href="/"><span>💝</span> Group04<span></span></a>
 
         <nav className="nav">
           <div className="nav-item">
@@ -60,7 +60,7 @@ export default function Header({ query, setQuery }) {
         <div className="actions">
           <input
             className="search"
-            placeholder="Search products…"
+            placeholder="Search items…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

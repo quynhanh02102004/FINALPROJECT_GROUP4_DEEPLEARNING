@@ -1,137 +1,98 @@
-/* ========== HERO BANNER ========== */
-.hero {
+/* ================= HERO KUOSE STYLE ================= */
+.hero-banner {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  height: 1000px;
   overflow: hidden;
-  border-radius: 16px;
-  margin: 30px auto;
-  max-width: 1200px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  /* FULL WIDTH TRICK */
+  left: 50%;
+  margin-left: -50vw;
+}
+.hero-wrapper {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
-/* Ảnh nền */
-.hero-img {
+
+/* Ảnh nền dạng background-cover */
+.hero-bg {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 16px;
-  object-fit: cover;
+  height: 100%;
+  background-image: url("https://img-va.myshopline.com/image/store/1656670318789/1-PC-NEW-IN-129_3840x.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.85);
 }
 
-/* ========== NỘI DUNG ĐÈ LÊN ẢNH ========== */
+
+/* Content đặt lệch phải giống banner KUOSE */
 .hero-content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #ffffff;
-  padding: 40px 60px;
-  border-radius: 16px;
-
-  /* Nền mờ nhẹ để dễ đọc chữ */
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(5px);
-}
-
-/* Tiêu đề lớn */
-.hero-content h1 {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Mô tả phụ */
-.hero-content p {
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 25px;
-  opacity: 0.9;
-}
-
-/* ========== CÁC NÚT TRÊN BANNER ========== */
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* Nút cơ bản */
-.btn {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-
-/* Nút chính (gradient) */
-.btn-primary {
-  background: linear-gradient(90deg, #00bcd4, #8e24aa);
+  top: 60.8%;
+  right: 11%;
+  transform: translateY(-50%);
   color: white;
-  border: none;
+  text-align: left;        /* Lệch trái */
+  max-width: 700px;
 }
 
-.btn-primary:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+/* Title */
+.hero-title {
+  font-size: 55px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
-
-/* Nút viền trắng */
 .btn-outline {
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 79px;
+  min-width: 300px !important;  
+
+  font-size: 20px !important;
+  font-weight: 500 !important;   
+
+  padding: 0 24px;
+
+  background: transparent !important;  
+  color: black !important;            
+  border: 3px solid black !important;  
+
+  border-radius: 0 !important;   
+  border: 2px solid black !important; 
+  background: transparent !important;
+  color: black !important;
+
+  white-space: nowrap;
+  box-shadow: none !important;        
+
+  background-image: none !important;   
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.05);
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 25px 35px;
-  }
-
-  .hero-content h1 {
-    font-size: 25px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 22px;
-  }
+  background: rgba(0, 0, 0, 0.06);
+  transform: scale(1.03);
 }
 
 
-.hero-title {
-  text-align: center;
-  font-weight: 800;
-  font-size: 2.8rem;
-  color: white;
-  line-height: 1.2;
+
+.hero-actions .btn-outline {
+  position: relative;
+  z-index: 5; /* Đè lên hình */
+}
+.hero-actions {
+  margin-top: -45px; /* kéo nút lên trên đè vào ô */
+  margin-left: 20px; /* kéo nút sang trái/phải tùy bạn */
 }
 
-/* Hiệu ứng vàng ánh kim */
+
+
+/* Gold shimmer giữ nguyên */
 .gold {
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFEA70, #FFD700);
   -webkit-background-clip: text;
@@ -140,12 +101,7 @@
   animation: shimmer 3s linear infinite;
 }
 
-/* Hiệu ứng ánh sáng chạy qua */
 @keyframes shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }

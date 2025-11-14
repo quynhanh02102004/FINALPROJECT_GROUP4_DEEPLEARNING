@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
 .search-similar {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px 16px 40px;
+  font-family: 'Inter', sans-serif;     /* Font mới */
+  color: #000;                          /* Toàn trang: chữ đen */
 }
-
 .search-header h2 {
-  font-size: 24px;
-  margin-bottom: 6px;
-  color: #fff;
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif; /* Sang trọng */
+  color: #000;
 }
 .search-header p {
   color: #9fb0c9;
@@ -25,8 +29,8 @@
 .dropzone {
   width: 260px;
   height: 260px;
-  background: #0f1422;
-  border: 2px dashed #2c3b5d;
+  background: #fafafa;                      /* nền sáng */
+  border: 2px dashed #aaa;
   border-radius: 14px;
   display: grid;
   place-items: center;
@@ -67,20 +71,18 @@
 .result-area {
   margin-top: 10px;
 }
-.result-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 12px 8px;
-}
 .result-head h3 {
-  color: #fff;
+  color: #000;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
 }
 .result-head .hint {
-  color: #8ea2c1;
-  font-size: 0.9rem;
+  color: #555;
 }
-.back-btn {
+.result-head .hint {
+  color: #555;
+}
+/* .back-btn {
   display: inline-block;
   background: linear-gradient(90deg, #2196f3, #9c27b0);
   color: white;
@@ -94,4 +96,34 @@
 .back-btn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+} */
+
+.back-btn,
+.search-btn {
+  background: linear-gradient(135deg, #6a5af9, #b54cff);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(150, 80, 255, 0.25);
+}
+
+/* Hover sang trọng */
+.back-btn:hover,
+.search-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(150, 80, 255, 0.35);
+  filter: brightness(1.08);
+}
+
+/* Khi disabled */
+.search-btn:disabled {
+  background: #cccccc !important;
+  box-shadow: none;
+  cursor: not-allowed;
 }

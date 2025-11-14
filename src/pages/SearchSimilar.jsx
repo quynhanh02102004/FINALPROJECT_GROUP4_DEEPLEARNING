@@ -40,7 +40,8 @@ export default function SearchSimilar() {
       const form = new FormData();
       form.append("file", file);
 
-      const res = await fetch("http://127.0.0.1:8000/search_image?topk=10&rerank=true", {
+      const res = await fetch("/api/search_image?topk=10&rerank=true", {
+
         method: "POST",
         body: form,
       });
@@ -56,10 +57,8 @@ export default function SearchSimilar() {
         id: r.item_id,
         title: r.title || "Sản phẩm",
         category: r.main_category || "Khác",
-        image: imageMap[r.item_id]
-          ? `/${imageMap[r.item_id]}`
-          : "/polyvore_outfits/images/notfound.jpg",
-        price: Math.floor(Math.random() * 400000) + 150000, // 💰 random giá từ 150k–550k
+        image: `/api/image/${r.item_id}`,  // <<-- ảnh từ database
+        price: Math.floor(Math.random() * 400000) + 150000,
       }));
 
 
@@ -79,7 +78,8 @@ export default function SearchSimilar() {
     setCompatible([]);
 
     try {
-      const url = `http://127.0.0.1:8000/compatible/${item.id}?topk=3&candidates=50000`;
+      const url = `/api/compatible/${item.id}?topk=3&candidates=50000`;
+
       const res = await fetch(url, { method: "POST" });
       if (!res.ok) throw new Error("Lỗi khi lấy dữ liệu phối đồ");
       const data = await res.json();
@@ -96,9 +96,8 @@ export default function SearchSimilar() {
         id: r.item_id,
         title: r.title || "Sản phẩm",
         category: r.main_category || "Khác",
-        image: imageMap[r.item_id]
-          ? `/${imageMap[r.item_id]}`
-          : "/polyvore_outfits/images/notfound.jpg",
+        image: `/api/image/${r.item_id}`,  // <<-- ảnh từ database!
+
         price: Math.floor(Math.random() * 400000) + 150000, // 💰 random giá 150k–550k
       }));
 
@@ -118,10 +117,10 @@ export default function SearchSimilar() {
       </div>
 
       <div className="search-header">
-        <h2>Find similar photos (Feature 1)</h2>
+        <h2>Find similar items</h2>
         <p>
-          Upload a photo of an outfit to find similar products. 
-          Click on a product to see matching items.
+          Upload a photo of an outfit to find similar items. 
+          Click on a item to see matching items.
         </p>
       </div>
 
@@ -144,7 +143,7 @@ export default function SearchSimilar() {
           onClick={handleSearch}
           disabled={!file || loading}
         >
-          {loading ? "Looking for..." : "Find similar photos"}
+          {loading ? "Looking for..." : "Find similar items"}
         </button>
         {error && <div className="error">{error}</div>}
       </div>
@@ -153,7 +152,7 @@ export default function SearchSimilar() {
       <div className="result-area">
         <div className="result-head">
           <h3>Suggested results</h3>
-          <span className="hint">Click on the product to see outfit suggestions</span>
+          <span className="hint">Click on the item to see outfit suggestions</span>
         </div>
 
         {loading ? (
@@ -162,7 +161,7 @@ export default function SearchSimilar() {
           <ProductGrid items={items} onItemClick={handleItemClick} />
         ) : (
           <p style={{ textAlign: "center", opacity: 0.7 }}>
-            No results yet. Upload a photo and click “Find similar photos”.
+            No results yet. Upload a photo and click “Find similar items.
           </p>
         )}
       </div>
